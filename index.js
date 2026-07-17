@@ -34,9 +34,11 @@ function fetchingSuggestion(searchKeyboard,inputBox){
 
 function debouncing (){
     let timeInterval;
-    return function innerFun(cb){
+    return function innerFun(cb,delay,targetValue){
     clearTimeout(timeInterval)
-    timeInterval = setTimeout(cb
+    timeInterval = setTimeout(()=>{
+        cb(targetValue)
+    }
     ,3000)
     }
 }
@@ -69,13 +71,13 @@ function appendChildInList (suggestedArray,loading,inputBoxValue){
 }
 
 const inputBox = document.querySelector('input')
-const de = debouncing()
+const debounceFetch = debouncing(fetchingSuggestion,3000)
 const mainSearchListContainer = document.querySelector('.suggestionContainer')
 inputBox.addEventListener('input',(e)=>{
         if(!e.target.value){
             return
         }
-        de(()=>fetchingSuggestion(e.target.value , inputBox))
+        debounceFetch(()=>fetchingSuggestion(e.target.value , inputBox))
 })
 let i = -1
 inputBox.addEventListener('keydown',(e)=>{
