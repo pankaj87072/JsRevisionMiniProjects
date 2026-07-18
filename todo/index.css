@@ -1,0 +1,42 @@
+.main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+.todoContainer{
+border: solid 1px;
+border-radius: 6px;
+width: fit-content;
+margin: auto;
+height: 100px;
+padding: 10px;
+}
+input{
+    border: solid 1px;
+    border-radius: 4px;
+}
+button{
+    border:solid 1px;
+    border-radius: 4px;
+}
+#todoList{
+    height: 80px;
+    overflow-y: auto;
+
+}
+ul{
+    padding: 0px;
+}
+li{
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.actionBttns{
+    display: flex;
+    gap: 2px;
+    
+}
+
+
